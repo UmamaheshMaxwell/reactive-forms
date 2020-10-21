@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Reactive Forms</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="firstName">FirstName</label>
+      <input type="text" name="firstName" class="form-control" formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">LastName</label>
+      <input type="text" name="lastName" class="form-control" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>&nbsp;
+      <input type="radio" name="gender" value="male" formControlName="gender">Male
+      <input type="radio" name="gender" value="female" formControlName="gender">Female
+    </div>
+    <div class="form-group">
+      <label for="isMarried">Married</label>&nbsp;
+      <input type="checkbox" name="isMarried" formControlName="isMarried">
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <select name="country" class="form-control" formControlName="country">
+        <option selected="" value=""></option>
+        <option [ngValue]="country.id" *ngFor="let country of countryList">
+          {{country.name}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group" formGroupName="address">
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" name="city" class="form-control" formControlName="city">
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" name="state" class="form-control" formControlName="state">
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" name="pincode" class="form-control" formControlName="pincode">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>
